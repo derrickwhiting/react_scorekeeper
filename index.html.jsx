@@ -106,6 +106,7 @@
           super(props);
           this.state = { checked: false, style: {}, score: 0 };
           this.toggleChecked = this.toggleChecked.bind(this);
+          this.updateScore = this.updateScore.bind(this);
         }
         toggleChecked(){
           let complete = !this.state.checked;
@@ -127,11 +128,14 @@
           let color = this.state.checked ? 'green lighten-5' : 'grey lighten-5';
           return(
             <div>
-              <div className='col m9' style={this.state.style}>
+              <div className='col m8' style={this.state.style}>
                 {this.props.name}
               </div>
-              <div className='col m3'>
-                {this.state.score}
+              <div className='col m2'>
+                <div>{this.state.score}</div>
+              </div>
+              <div className='col m2'>
+                <div><button onClick={this.updateScore}>{'add'}</button></div>
               </div>
             </div>
           )
